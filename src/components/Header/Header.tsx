@@ -4,7 +4,6 @@ import styles from './Header.module.css';
 import logo from '../../assets/logo.jpg';
 
 import type { HeaderProps } from './Header.types';
-import Producto from '../../pages/Products/ProductsPage';
 
 
 
