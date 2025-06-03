@@ -1,0 +1,54 @@
+/* Estilos para el contenedor principal de la página de productos */
+.productsPageContainer {
+  width: 100%; /* 100% del ancho de la ventana */
+  padding: 40px 20px;
+  margin: 0; /* Elimina el centrado */
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.pageDescription {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 4 columnas fijas */
+  gap: 20px;
+  padding: 0 20px;
+}
+
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .productsPageContainer {
+    padding: 15px;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .pageDescription {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .productsGrid {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .productsPageContainer {
+    padding: 10px;
+  }
+}

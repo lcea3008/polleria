@@ -1,0 +1,72 @@
+/* Este archivo es el mismo que tu .css original, renombrado y con clases para CSS Modules */
+
+/* Para asegurar que los tamaños sean correctos */
+/* Nota: * { box-sizing: border-box; } es mejor incluirlo en un archivo CSS global (ej. src/index.css)
+   o en tu archivo CSS de reseteo, no en cada módulo. */
+
+.homeContainer { /* Renombrado a camelCase para CSS Modules */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.homeTitle { /* Renombrado a camelCase para CSS Modules */
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  color: #333;
+  padding: 0 20px; /* Añadido padding para que el texto no se pegue a los bordes */
+}
+
+.contenidoPrincipal { /* Renombrado a camelCase para CSS Modules */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+  padding: 0 10px; /* Añadido padding para que el contenido no se pegue a los bordes en pantallas grandes */
+}
+
+.carruselSection { /* Renombrado a camelCase para CSS Modules */
+  flex: 2; /* Ocupa 5 veces más */
+  min-width: 0; /* <<< Muy importante */
+  background-color: #e0e0e0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.ofertasSection { /* Renombrado a camelCase para CSS Modules */
+  flex: 1; /* Ocupa menos */
+  min-width: 0; /* <<< Muy importante */
+  background-color: #e0e0e0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+/* Modo responsive para celulares */
+@media (max-width: 768px) {
+  .contenidoPrincipal {
+    flex-direction: column; /* Se apilan */
+    gap: 10px;
+  }
+
+  .carruselSection, .ofertasSection {
+    flex: none;
+    width: 100%;
+  }
+
+  .homeTitle {
+    font-size: 20px; /* Ajuste para móviles */
+  }
+}

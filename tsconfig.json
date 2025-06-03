@@ -1,0 +1,15 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": "src", // Base para rutas absolutas
+    "paths": {
+      "@components/*": ["components/*"], // Alias para la carpeta de componentes
+      "@pages/*": ["pages/*"],           // Alias para la carpeta de páginas
+      "@assets/*": ["assets/*"]          // Si tienes una carpeta de assets
+    }
+  }
+}

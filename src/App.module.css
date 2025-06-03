@@ -1,0 +1,18 @@
+/* Este archivo maneja el layout general de tu aplicación */
+
+.appContainer { /* Renombrado a camelCase para CSS Modules */
+  display: grid;
+  /* Define 3 filas: auto para Header, 1fr para el contenido principal (Routes), auto para Footer */
+  grid-template-rows: auto 1fr auto;
+  min-width: 100%; /* Viewport width dinámico */
+  min-height: 100%; /* Viewport height */
+}
+
+
+
+.notFoundMessage { /* Clase para estilizar el mensaje de página no encontrada */
+  text-align: center;
+  padding: 50px;
+  font-size: 2em;
+  color: #c00;
+}

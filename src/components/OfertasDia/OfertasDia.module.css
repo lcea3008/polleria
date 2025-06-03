@@ -1,0 +1,118 @@
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.boton {
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #0056b3;
+}
+
+.ofertasContainer {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tituloOfertas {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.ofertasDia {
+  width: 90%;
+  height: 85%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* NUEVO: tamaño fijo del contenedor de cada oferta */
+.oferta {
+  width: 300px;
+  height: 380px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+}
+
+.ofertaImagen {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Texto con altura fija */
+.ofertaTexto {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
+  font-weight: normal; /* puedes cambiar a bold si lo prefieres */
+  text-align: justify; /* o center/left según preferencia */
+  line-height: 1.5;
+  padding: 0 10px;
+  height: auto; /* Permite crecer según el contenido */
+  max-height: 100px; /* opcional: limitar si es muy largo */
+  overflow-y: auto; /* añade scroll si es muy largo */
+}
+
+
+.noOfertasMessage {
+  padding: 20px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .tituloOfertas {
+    font-size: 1.5rem;
+  }
+
+  .ofertaTexto {
+    font-size: 1rem;
+  }
+
+  .ofertasContainer {
+    padding: 5px;
+  }
+
+  .ofertasDia {
+    padding: 8px;
+  }
+
+  .oferta {
+    width: 260px;
+    height: 340px;
+  }
+
+  .ofertaImagen {
+    width: 260px;
+    height: 260px;
+  }
+}

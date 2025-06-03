@@ -1,0 +1,52 @@
+/* Este archivo es el mismo que tu .css original, renombrado y con clases para CSS Modules */
+
+.footer {
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  margin-top: auto; /* Útil para asegurar que el footer esté al final de la página */
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+}
+
+.footerContent { /* Renombrado a camelCase para CSS Modules */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.socialLinks a { /* Renombrado a camelCase para CSS Modules */
+  margin: 0 20px;
+}
+
+.socialIcon { /* Renombrado a camelCase para CSS Modules */
+  width: 30px;
+  height: 30px;
+}
+
+/* Responsivo: Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    /* Centra los elementos en pantallas pequeñas */
+    text-align: center;
+  }
+
+  .socialLinks {
+    margin-top: 10px;
+  }
+
+  .socialLinks a {
+    margin: 5px 10px;
+  }
+
+  .footer {
+    padding: 20px 10px;
+  }
+
+  .footerContent > * { /* Puedes mantener selectores directos si no son clases */
+    margin-bottom: 10px;
+  }
+}
