@@ -1,5 +1,36 @@
-// Si el Footer necesitara props en el futuro (ej: socialLinks: { href: string; icon: string; alt: string }[]),
-// las definirías aquí. Por ahora, puede estar vacío o simplemente exportar una interfaz vacía.
+export interface ContactInfo {
+  phone: string
+  email: string
+  address: string
+}
+
+export interface BusinessHours {
+  weekdays: string
+  weekends: string
+}
+
+export interface SocialLink {
+  name: string
+  url: string
+  icon: "facebook" | "instagram" | "tiktok" | "twitter" | "youtube"
+}
+
+export interface QuickLink {
+  name: string
+  href: string
+}
+
+export interface LegalLink {
+  name: string
+  href: string
+}
+
 export interface FooterProps {
-  // Nada por ahora, pero listo para ser extendido
+  brandName?: string
+  contactInfo?: ContactInfo
+  businessHours?: BusinessHours
+  socialLinks?: SocialLink[]
+  quickLinks?: QuickLink[]
+  legalLinks?: LegalLink[]
+  showNewsletter?: boolean
 }

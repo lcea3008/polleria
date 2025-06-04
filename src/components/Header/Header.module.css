@@ -1,124 +1,286 @@
-/* Este archivo es prácticamente igual a tu .css original,
-   pero ahora se importará como un módulo en Header.tsx */
-
 .header {
+  background-color: #000;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding: 10px 20px;
-  color: white;
-  background-color: black;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  position: relative;
 }
 
-.logo img {
-  max-height: 80px;
+/* Brand */
+.brand {
+  flex-shrink: 0;
 }
 
-.logo {
+.logoLink {
   display: flex;
   align-items: center;
-  gap: 10px; /* Espacio entre el logo y el nombre */
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
 }
 
-.nombrePolleria { /* Nombramos con camelCase aquí para CSS Modules */
-  font-size: 24px;
-  font-weight: bold;
+.logoLink:hover {
+  opacity: 0.9;
+}
+
+.logoImage {
+  height: 3rem;
+  width: auto;
+  border-radius: 0.25rem;
+}
+
+.brandName {
+  font-size: 1.5rem;
+  font-weight: 700;
   color: white;
+  white-space: nowrap;
 }
 
-/* Menú */
-.menu {
-  display: flex; /* Cambiado de 20px a flex, asumo que era un typo */
-}
-
-.menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Navigation */
+.nav {
   display: flex;
-  gap: 50px;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: #f0f0f0;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after,
+.navLinkActive::after {
+  width: 100%;
+}
+
+.navLinkActive {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Search */
+.searchForm {
+  display: flex;
+  align-items: center;
+}
+
+.searchInputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.searchInput {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  width: 200px;
+  background: transparent;
+}
+
+.searchInput::placeholder {
+  color: #6b7280;
+}
+
+.searchButton {
+  padding: 0.5rem;
+  border: none;
+  background-color: #f3f4f6;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.menu ul li {
-  display: inline;
+.searchButton:hover:not(:disabled) {
+  background-color: #e5e7eb;
 }
 
-.menu ul li a {
-  color: white;
-  text-decoration: none;
+.searchButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-.menu ul li a:hover {
-  text-decoration: underline;
-}
-
-/* Barra de búsqueda */
-.searchBar { /* Nombramos con camelCase aquí para CSS Modules */
-  display: flex;
-  align-items: center;
-}
-
-.searchBar input { /* Considera mover estos estilos a un componente Input genérico */
-  padding: 10px;
-  margin-right: 15px;
-}
-
-.searchBar button { /* Considera mover estos estilos a un componente Button genérico */
-  background-color: #f8f8f8;
+/* Menu Toggle */
+.menuToggle {
+  display: none;
+  background: none;
   border: none;
+  color: white;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
 }
 
-/* Botón de menú hamburguesa */
-.menuToggle { /* Nombramos con camelCase aquí para CSS Modules */
-  display: none; /* Oculto por defecto */
+.menuToggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Responsivo: Ajustes para pantallas pequeñas */
+/* Overlay */
+.overlay {
+  display: none;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
+  .container {
+    padding: 1rem;
+  }
+
+  .brandName {
+    font-size: 1.25rem;
+  }
+
+  .logoImage {
+    height: 2.5rem;
   }
 
   .menuToggle {
-    display: block; /* Visible en pantallas pequeñas */
-    background-color: #444;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 18px;
-    /* Para colocar el toggle al lado del logo en móvil */
-    align-self: flex-end; /* Alinea el botón a la derecha dentro del header flex-column */
-    margin-top: -60px; /* Ajusta la posición para que quede en la línea del logo */
-    position: relative; /* Asegura que el margin-top funcione bien */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
   }
 
-  .menu {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: #000;
+    padding: 5rem 2rem 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navOpen {
+    right: 0;
+  }
+
+  .navList {
     flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .navLink {
+    font-size: 1.125rem;
+    padding: 0.75rem 0;
     width: 100%;
-    display: none; /* Oculta el menú inicialmente */
+    display: block;
   }
 
-  .menu.show {
-    display: flex; /* Muestra el menú cuando está activo */
+  .searchForm {
+    order: -1;
+    margin-right: 1rem;
   }
 
-  .menu ul {
-    flex-direction: column;
-    gap: 10px;
+  .searchInputWrapper {
     width: 100%;
   }
 
-  .menu ul li {
-    text-align: left;
+  .searchInput {
+    width: 150px;
+    font-size: 0.8rem;
   }
 
-  .searchBar {
-    margin-top: 10px;
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .brandName {
+    display: none;
+  }
+
+  .searchInput {
+    width: 120px;
+  }
+
+  .nav {
+    width: 100%;
+    right: -100%;
+  }
+}
+
+/* Focus styles for accessibility */
+.logoLink:focus,
+.navLink:focus,
+.searchInput:focus,
+.searchButton:focus,
+.menuToggle:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav,
+  .navLink::after,
+  .searchButton,
+  .menuToggle {
+    transition: none;
   }
 }

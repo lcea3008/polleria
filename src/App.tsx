@@ -8,6 +8,8 @@ import Footer from './components/Footer/Footer';
 // Importamos las páginas
 import Home from './pages/Home/Home';
 import Producto from './pages/Products/ProductsPage';
+import Nosotros from './pages/AboutPage/AboutPage';
+
 
 // Importamos los estilos de App con CSS Modules
 import styles from './App.module.css';
@@ -22,6 +24,8 @@ const App: React.FC = () => {
           {/* Ruta principal */}
           <Route path="/" element={<Home />} />
           <Route path="/productos" element={<Producto />} />
+          <Route path="/Nosotros" element={<Nosotros />} />
+          {/* <Route path="/contactanos" element={<Contactanos />} /> */}
           {/* Ejemplo de una ruta "no encontrada" */}
           <Route path="*" element={<h1 className={styles.notFoundMessage}>Página no encontrada</h1>} />
         </Routes>

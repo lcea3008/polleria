@@ -1,15 +1,53 @@
-// Define la interfaz para la estructura de un producto individual
-// Esto se alinea con las props que espera ImageWithDescription
-export interface ProductItem {
-  imageUrl: string;
-  altText: string;
-  description: string;
-  // Puedes añadir más propiedades aquí si tus productos tienen, ej:
-  // name: string;
-  // price: number;
+import type React from "react"
+export interface NutritionalInfo {
+  calories: number
+  protein: number
+  carbs: number
+  fat: number
 }
 
-// La página de productos no necesita props externas por ahora
+export interface ProductItem {
+  id: number
+  name: string
+  description: string
+  imageUrl: string
+  altText: string
+  price: number
+  originalPrice?: number
+  category: string
+  rating: number
+  reviewCount: number
+  preparationTime: number
+  servings: number
+  isPopular: boolean
+  isNew: boolean
+  isSpicy: boolean
+  isVegetarian: boolean
+  tags: string[]
+  ingredients: string[]
+  nutritionalInfo: NutritionalInfo
+}
+
+export interface FilterOptions {
+  priceRange: [number, number]
+  isVegetarian: boolean
+  isSpicy: boolean
+  isNew: boolean
+  isPopular: boolean
+  minRating: number
+}
+
+export interface SortOption {
+  value: string
+  label: string
+  icon: React.ReactNode
+}
+
 export interface ProductsPageProps {
-  // Nada por ahora
+  title?: string
+  description?: string
+  showFilters?: boolean
+  showSearch?: boolean
+  defaultView?: "grid" | "list"
+  itemsPerPage?: number
 }

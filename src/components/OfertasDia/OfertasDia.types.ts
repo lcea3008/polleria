@@ -1,11 +1,28 @@
-// Define la interfaz para la estructura de una oferta individual
 export interface Oferta {
-  texto: string;
-  imagen: string; // URL o path de la imagen
+  id?: string | number
+  titulo?: string
+  descripcion: string
+  imagen: string
+  categoria?: string
+  precio?: number
+  precioOriginal?: number
+  precioOferta?: number
+  fechaVencimiento?: string
+  disponible?: boolean
+  stock?: number
 }
 
-// Define la interfaz para las propiedades que el componente OfertasDia puede recibir
 export interface OfertasDiaProps {
-  ofertas: Oferta[]; // Un array de objetos de tipo Oferta
-  intervalTime?: number; // Tiempo en milisegundos para el cambio de oferta (opcional, por defecto 3000)
+  ofertas: Oferta[]
+  intervalTime?: number
+  autoPlay?: boolean
+  showTimer?: boolean
+  showControls?: boolean
+  showIndicators?: boolean
+  pauseOnHover?: boolean
+  enableKeyboard?: boolean
+  onOfferClick?: (offer: Oferta, index: number) => void
+  onAddToCart?: (offer: Oferta, index: number) => void
+  onToggleFavorite?: (offer: Oferta, index: number, isFavorite: boolean) => void
+  onShare?: (offer: Oferta, index: number) => void
 }
