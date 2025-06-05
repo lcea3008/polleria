@@ -130,7 +130,6 @@ const Home: React.FC<HomeProps> = ({
   showTestimonials = true,
   showStats = true,
   showSpecialties = true,
-  showLocation = true,
 }) => {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({})
   const observerRef = useRef<IntersectionObserver | null>(null)
@@ -174,10 +173,17 @@ const Home: React.FC<HomeProps> = ({
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   
   window.open(whatsappUrl, "_blank");
-  console.log("REalizar pedido por What")
-};
+  console.log("Realizar pedido por WhatsApp");
+  };
 
+  const handleReserveTable = (reservarName: string ) => {
+    const phoneNumber = "51932836750"; // Reemplaza con tu número de WhatsApp
+    const message = `Hola, quiero reservar una mesa para: ${reservarName}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
+    window.open(whatsappUrl, "_blank");
+    console.log("Realizar reserva por WhatsApp");
+  };
 
   const handleViewMenu = () => {
     // Implementar navegación a menú
@@ -186,7 +192,7 @@ const Home: React.FC<HomeProps> = ({
   }
 
   const handleCallNow = () => {
-    window.open("tel:+51999888777", "_self")
+    window.open("tel:+51932836750", "_self")
   }
 
   return (
@@ -382,73 +388,6 @@ const Home: React.FC<HomeProps> = ({
         </section>
       )}
 
-      {/* Location & Hours Section */}
-      {showLocation && (
-        <section
-          className={`${styles.location} ${isVisible.location ? styles.animate : ""}`}
-          id="location"
-          data-animate
-        >
-          <div className={styles.container}>
-            <div className={styles.locationGrid}>
-              <div className={styles.locationInfo}>
-                <h2 className={styles.sectionTitle}>Visítanos</h2>
-                <p className={styles.sectionDescription}>
-                  Estamos ubicados en el centro de Oxapampa, fácil acceso y estacionamiento disponible
-                </p>
-
-                <div className={styles.locationDetails}>
-                  <div className={styles.locationItem}>
-                    <MapPin className={styles.locationIcon} size={24} />
-                    <div>
-                      <h4>Dirección</h4>
-                      <p>Av. Principal 123, Oxapampa, Pasco</p>
-                    </div>
-                  </div>
-
-                  <div className={styles.locationItem}>
-                    <Clock className={styles.locationIcon} size={24} />
-                    <div>
-                      <h4>Horarios de Atención</h4>
-                      <p>Lun - Dom: 11:00 AM - 10:00 PM</p>
-                      <p>Delivery hasta las 11:00 PM</p>
-                    </div>
-                  </div>
-
-                  <div className={styles.locationItem}>
-                    <Phone className={styles.locationIcon} size={24} />
-                    <div>
-                      <h4>Contacto</h4>
-                      <p>+51 999 888 777</p>
-                      <p>info@polleriaroys.com</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.locationActions}>
-                  <button className={styles.primaryButton} onClick={handleCallNow}>
-                    <Phone size={20} />
-                    Llamar Ahora
-                  </button>
-                  <button className={styles.secondaryButton}>
-                    <MapPin size={20} />
-                    Ver en Mapa
-                  </button>
-                </div>
-              </div>
-
-              <div className={styles.locationMap}>
-                <div className={styles.mapPlaceholder}>
-                  <MapPin size={48} />
-                  <p>Mapa Interactivo</p>
-                  <small>Haz clic para ver la ubicación en Google Maps</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* CTA Section */}
       <section className={styles.cta}>
         <div className={styles.container}>
@@ -462,7 +401,7 @@ const Home: React.FC<HomeProps> = ({
                 <Utensils size={20} />
                 Pedir Delivery
               </button>
-              <button className={styles.secondaryButton}>
+              <button className={styles.secondaryButton} onClick={() => handleReserveTable("Reservar Mesa")}>
                 <Calendar size={20} />
                 Reservar Mesa
               </button>

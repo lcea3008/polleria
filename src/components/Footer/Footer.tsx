@@ -43,11 +43,10 @@ const Footer: React.FC<FooterProps> = ({
     },
   ],
   quickLinks = [
-    { name: "Menú", href: "/menu" },
-    { name: "Pedidos Online", href: "/pedidos" },
-    { name: "Promociones", href: "/promociones" },
+    { name: "Inicio", href: "/" },
+    { name: "Menú", href: "/productos" },
     { name: "Nosotros", href: "/nosotros" },
-    { name: "Contacto", href: "/contacto" },
+    { name: "Contacto", href: "/contactanos" },
   ],
   legalLinks = [
     { name: "Términos y Condiciones", href: "/terminos" },

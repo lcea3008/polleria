@@ -492,7 +492,7 @@ const AboutPage: React.FC<AboutPageProps> = ({
               Visítanos y descubre por qué somos el restaurante favorito de Oxapampa desde hace más de 25 años.
             </p>
             <div className={styles.ctaButtons}>
-              <a href="/contacto" className={styles.ctaPrimary}>
+              <a href="/contactanos" className={styles.ctaPrimary}>
                 Contáctanos <ArrowRight size={20} />
               </a>
               <a href="/productos" className={styles.ctaSecondary}>

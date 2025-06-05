@@ -9,8 +9,24 @@ import styles from "./Header.module.css"
 import logo from "../../assets/logo.jpg"
 import type { HeaderProps } from "./Header.types"
 
+// Importar los productos reales
+import { productsData } from "../../pages/Products/data/productsData"
+
+// Interfaz para elementos de búsqueda
+interface SearchItem {
+  id: string
+  name: string
+  type: string
+  href: string
+  description: string
+  tags: string[]
+  price?: number
+  category?: string
+}
+
 const Header: React.FC<HeaderProps> = ({
   navItems = [
+    { name: "Inicio", href: "/" },
     { name: "Productos", href: "/productos" },
     { name: "Nosotros", href: "/nosotros" },
     { name: "Contáctanos", href: "/contactanos" },
@@ -31,17 +47,113 @@ const Header: React.FC<HeaderProps> = ({
   const location = useLocation()
   const navigate = useNavigate()
 
-  // Datos de ejemplo para búsqueda
-  const searchData = [
-    { id: 1, name: "Pollo Entero a la Brasa", type: "producto", price: 28.9, href: "/productos/pollo-entero" },
-    { id: 2, name: "Alitas BBQ", type: "producto", price: 18.9, href: "/productos/alitas-bbq" },
-    { id: 3, name: "Combo Familiar", type: "producto", price: 65.9, href: "/productos/combo-familiar" },
-    { id: 4, name: "Ensalada César", type: "producto", price: 16.9, href: "/productos/ensalada-cesar" },
-    { id: 5, name: "Anticuchos", type: "producto", price: 22.9, href: "/productos/anticuchos" },
-    { id: 6, name: "Nosotros", type: "página", href: "/nosotros" },
-    { id: 7, name: "Contacto", type: "página", href: "/contactanos" },
-    { id: 8, name: "Delivery", type: "servicio", href: "/delivery" },
-    { id: 9, name: "Reservaciones", type: "servicio", href: "/reservaciones" },
+  // Datos completos para búsqueda (productos + páginas + servicios)
+  const searchData: SearchItem[] = [
+    // Productos reales de la pollería
+    ...productsData.map((product) => ({
+      id: `product-${product.id}`,
+      name: product.name,
+      type: "producto",
+      price: product.price,
+      href: `/productos/${product.id}`,
+      category: product.category,
+      description: product.description,
+      tags: product.tags,
+    })),
+
+    // Páginas del sitio
+    {
+      id: "page-home",
+      name: "Inicio",
+      type: "página",
+      href: "/",
+      description: "Página principal de Pollería Roy's",
+      tags: ["inicio", "home", "principal"],
+    },
+    {
+      id: "page-products",
+      name: "Productos",
+      type: "página",
+      href: "/productos",
+      description: "Todos nuestros deliciosos productos",
+      tags: ["productos", "menú", "comida", "carta"],
+    },
+    {
+      id: "page-about",
+      name: "Nosotros",
+      type: "página",
+      href: "/nosotros",
+      description: "Conoce la historia de Pollería Roy's",
+      tags: ["nosotros", "historia", "equipo", "valores"],
+    },
+    {
+      id: "page-contact",
+      name: "Contáctanos",
+      type: "página",
+      href: "/contactanos",
+      description: "Información de contacto y ubicación",
+      tags: ["contacto", "teléfono", "dirección", "ubicación"],
+    },
+
+    // Servicios
+    {
+      id: "service-delivery",
+      name: "Delivery",
+      type: "servicio",
+      href: "/delivery",
+      description: "Servicio de entrega a domicilio",
+      tags: ["delivery", "entrega", "domicilio", "pedidos"],
+    },
+    {
+      id: "service-reservations",
+      name: "Reservaciones",
+      type: "servicio",
+      href: "/reservaciones",
+      description: "Reserva tu mesa para eventos especiales",
+      tags: ["reservas", "mesas", "eventos", "cumpleaños"],
+    },
+    {
+      id: "service-catering",
+      name: "Catering",
+      type: "servicio",
+      href: "/catering",
+      description: "Servicio de catering para eventos",
+      tags: ["catering", "eventos", "fiestas", "corporativo"],
+    },
+
+    // Categorías de productos
+    {
+      id: "category-pollos",
+      name: "Pollos a la Brasa",
+      type: "categoría",
+      href: "/productos?categoria=Pollos",
+      description: "Nuestros deliciosos pollos a la brasa",
+      tags: ["pollo", "brasa", "entero", "especialidad"],
+    },
+    {
+      id: "category-broster",
+      name: "Pollo Broster",
+      type: "categoría",
+      href: "/productos?categoria=Broster",
+      description: "Pollo broster crujiente y jugoso",
+      tags: ["broster", "frito", "crujiente"],
+    },
+    {
+      id: "category-combos",
+      name: "Combos Familiares",
+      type: "categoría",
+      href: "/productos?categoria=Combos",
+      description: "Combos perfectos para compartir",
+      tags: ["combos", "familiar", "compartir"],
+    },
+    {
+      id: "category-criollos",
+      name: "Platos Criollos",
+      type: "categoría",
+      href: "/productos?categoria=Criollos",
+      description: "Deliciosos platos de la cocina criolla",
+      tags: ["criollos", "tallarín", "lomo", "chaufa"],
+    },
   ]
 
   const toggleMenu = (): void => {
@@ -63,13 +175,41 @@ const Header: React.FC<HeaderProps> = ({
 
     // Simular búsqueda con delay
     setTimeout(() => {
+      const searchTerm = query.toLowerCase()
+
       const results = searchData
-        .filter(
-          (item) =>
-            item.name.toLowerCase().includes(query.toLowerCase()) ||
-            item.type.toLowerCase().includes(query.toLowerCase()),
-        )
-        .slice(0, 5) // Limitar a 5 resultados
+        .filter((item) => {
+          // Búsqueda en nombre
+          const nameMatch = item.name.toLowerCase().includes(searchTerm)
+
+          // Búsqueda en tipo
+          const typeMatch = item.type.toLowerCase().includes(searchTerm)
+
+          // Búsqueda en descripción (si existe)
+          const descriptionMatch = item.description?.toLowerCase().includes(searchTerm) || false
+
+          // Búsqueda en tags (si existen)
+          const tagsMatch = item.tags?.some((tag) => tag.toLowerCase().includes(searchTerm)) || false
+
+          // Búsqueda en categoría (si existe)
+          const categoryMatch = item.category?.toLowerCase().includes(searchTerm) || false
+
+          return nameMatch || typeMatch || descriptionMatch || tagsMatch || categoryMatch
+        })
+        .sort((a, b) => {
+          // Priorizar productos sobre otros tipos
+          if (a.type === "producto" && b.type !== "producto") return -1
+          if (b.type === "producto" && a.type !== "producto") return 1
+
+          // Priorizar coincidencias exactas en el nombre
+          const aNameExact = a.name.toLowerCase().startsWith(searchTerm)
+          const bNameExact = b.name.toLowerCase().startsWith(searchTerm)
+          if (aNameExact && !bNameExact) return -1
+          if (bNameExact && !aNameExact) return 1
+
+          return 0
+        })
+        .slice(0, 8) // Aumentar a 8 resultados
 
       setSearchResults(results)
       setShowSearchResults(true)
