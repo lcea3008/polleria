@@ -461,7 +461,6 @@ const ProductsPage: React.FC<ProductsPageProps> = ({
   showFilters = true,
   showSearch = true,
   defaultView = "grid",
-  itemsPerPage = 12,
 }) => {
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [selectedCategory, setSelectedCategory] = useState<string>("Todos")
@@ -469,7 +468,6 @@ const ProductsPage: React.FC<ProductsPageProps> = ({
   const [viewMode, setViewMode] = useState<"grid" | "list">(defaultView)
   const [showFiltersPanel, setShowFiltersPanel] = useState<boolean>(false)
   const [favorites, setFavorites] = useState<Set<number>>(new Set())
-  const [cart, setCart] = useState<Set<number>>(new Set())
   const [filters, setFilters] = useState<FilterOptions>({
     priceRange: [0, 100],
     isVegetarian: false,
@@ -542,12 +540,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({
     })
   }
 
-  const handleAddToCart = (productId: number) => {
-    setCart((prev) => new Set(prev).add(productId))
-    // Aquí podrías mostrar una notificación
-    console.log(`Producto ${productId} agregado al carrito`)
-  }
-
+  
   const handleProductClick = (product: ProductItem) => {
     // Navegar a página de detalle del producto
     console.log("Ver detalles del producto:", product.name)
@@ -785,7 +778,6 @@ const ProductsPage: React.FC<ProductsPageProps> = ({
                   badge={getProductBadges(product)}
                   onImageClick={() => handleProductClick(product)}
                   onLike={() => handleToggleFavorite(product.id)}
-                  onActionClick={() => handleAddToCart(product.id)}
                   clickable
                 />
 
@@ -818,10 +810,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({
                     >
                       <Heart size={18} fill={favorites.has(product.id) ? "currentColor" : "none"} />
                     </button>
-                    <button className={styles.addToCartButton} onClick={() => handleAddToCart(product.id)}>
-                      <ShoppingCart size={18} />
-                      Agregar
-                    </button>
+                    
                     <button className={styles.viewDetailsButton} onClick={() => handleProductClick(product)}>
                       <Eye size={18} />
                     </button>

@@ -54,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({
     { name: "Política de Privacidad", href: "/privacidad" },
     { name: "Política de Cookies", href: "/cookies" },
   ],
-  showNewsletter = true,
+  
 }) => {
   const currentYear = new Date().getFullYear()
 
@@ -71,17 +71,7 @@ const Footer: React.FC<FooterProps> = ({
     }
   }
 
-  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    const email = formData.get("email") as string
-
-    if (email) {
-      // Implementar lógica de suscripción
-      console.log("Newsletter subscription:", email)
-      // Aquí podrías integrar con un servicio como Mailchimp, SendGrid, etc.
-    }
-  }
+  
 
   return (
     <footer className={styles.footer} role="contentinfo">

@@ -10,6 +10,7 @@
       "@components/*": ["components/*"], // Alias para la carpeta de componentes
       "@pages/*": ["pages/*"],           // Alias para la carpeta de páginas
       "@assets/*": ["assets/*"]          // Si tienes una carpeta de assets
-    }
+    },
+    "types": ["node"], // Incluir tipos de Node.js
   }
 }
