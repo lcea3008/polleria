@@ -7,4 +7,5 @@ export interface HeaderProps {
   navItems?: NavItem[]
   showSearch?: boolean
   brandName?: string
+  onSearch?: (query: string) => void
 }

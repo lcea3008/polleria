@@ -1,0 +1,67 @@
+.mapContainer {
+  background: #f9fafb;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 300px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.mapPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b7280;
+  text-align: center;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(251, 191, 36, 0.05));
+}
+
+.mapPlaceholder:hover {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(251, 191, 36, 0.1));
+  color: #ff6b35;
+  transform: scale(1.02);
+}
+
+.mapPlaceholder svg {
+  margin-bottom: 1rem;
+  color: #ff6b35;
+}
+
+.mapPlaceholder p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+}
+
+.mapPlaceholder small {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .mapContainer {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapContainer {
+    height: 200px;
+  }
+
+  .mapPlaceholder {
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mapPlaceholder:hover {
+    transform: none;
+  }
+}
