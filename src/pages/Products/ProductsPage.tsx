@@ -4,13 +4,14 @@ import type React from "react"
 
 import { useState, useMemo } from "react"
 import {Search,Filter,
-  Grid,List, Star, Heart, ShoppingCart, Eye, ChefHat, Clock, Users, Flame, Leaf,
+  Grid,List, Star, Heart, Eye, ChefHat, Clock, Users, Flame, Leaf,
   Award, SortAsc, SortDesc, X,} from "lucide-react"
 import ImageWithDescription from "../../components/ImageWithDescription/ImageWithDescription"
 import styles from "./ProductsPage.module.css"
 import type { ProductItem, ProductsPageProps, FilterOptions, SortOption } from "./ProductsPage.types"
 import {local1, local2,local3}  from "../../assets/images/index"
 
+// Importar imágenes locales
 const productsData: ProductItem[] = [
   {
     id: 1,
