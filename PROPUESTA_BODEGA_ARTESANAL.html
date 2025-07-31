@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Técnica - Bodegita Oxapampa</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+        }
+        
+        .header-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .header-info p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        
+        .emoji-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .emoji-list li {
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .highlight-box {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .cost-highlight {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .tech-stack {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .timeline {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .contact-info {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .terms {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            margin: 20px 0;
+        }
+        
+        @media print {
+            body {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            h1, h2 {
+                page-break-after: avoid;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>📋 PROPUESTA TÉCNICA Y ECONÓMICA</h1>
+    <h2 style="text-align: center; margin-top: 0;">DESARROLLO DE PLATAFORMA E-COMMERCE PARA BODEGA ARTESANAL</h2>
+
+    <div class="header-info">
+        <p><strong>Cliente:</strong> Bodegita Oxapampa</p>
+        <p><strong>Proyecto:</strong> Plataforma E-commerce para Bodega de Productos Artesanales</p>
+        <p><strong>Fecha:</strong> 30 de Julio, 2025</p>
+        <p><strong>Desarrollador:</strong> Edwin LCE</p>
+        <p><strong>Contacto:</strong> [Completar datos de contacto]</p>
+    </div>
+
+    <h2>🎯 RESUMEN EJECUTIVO</h2>
+    <p>Propuesta para el desarrollo de una <strong>plataforma e-commerce moderna y funcional</strong> especializada en la venta de productos artesanales y de bodega, diseñada específicamente para centros turísticos.</p>
+    
+    <p>La solución incluirá un <strong>sistema completo de gestión de productos</strong>, <strong>usuarios registrados</strong>, <strong>carrito de compras</strong> y <strong>panel administrativo</strong>, optimizada para dispositivos móviles y con integración directa a WhatsApp para facilitar las ventas.</p>
+
+    <h2>🏢 ANÁLISIS DEL NEGOCIO</h2>
+    
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <h3>Sector</h3>
+            <p>Bodega de Productos Artesanales</p>
+            <h3>Ubicación</h3>
+            <p>Centro Turístico</p>
+        </div>
+        <div class="benefit-card">
+            <h3>Oportunidades</h3>
+            <ul class="emoji-list">
+                <li>🎯 Mercado turístico en crecimiento</li>
+                <li>🎯 Productos únicos y artesanales</li>
+                <li>🎯 Ventaja competitiva digital</li>
+                <li>🎯 Expansión de mercado online</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Necesidades Identificadas:</h3>
+    <ul class="emoji-list">
+        <li>✅ Presencia digital profesional</li>
+        <li>✅ Catálogo online de productos</li>
+        <li>✅ Sistema de ventas e-commerce</li>
+        <li>✅ Gestión de inventario</li>
+        <li>✅ Atención a turistas 24/7</li>
+        <li>✅ Posicionamiento competitivo</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>💻 SOLUCIÓN PROPUESTA</h2>
+    
+    <div class="highlight-box">
+        <h3>PLATAFORMA E-COMMERCE COMPLETA</h3>
+        <p>Una aplicación web moderna con características profesionales</p>
+    </div>
+
+    <h3>🌟 FUNCIONALIDADES PRINCIPALES</h3>
+    
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <h4>Para los Clientes:</h4>
+            <ul class="emoji-list">
+                <li>📱 Catálogo con imágenes de alta calidad</li>
+                <li>🛒 Carrito de compras intuitivo</li>
+                <li>👤 Registro y perfil de usuario</li>
+                <li>🔍 Búsqueda y filtros avanzados</li>
+                <li>📱 Diseño responsive</li>
+                <li>💬 Integración con WhatsApp</li>
+                <li>🚚 Gestión de pedidos</li>
+            </ul>
+        </div>
+        <div class="benefit-card">
+            <h4>Para el Administrador:</h4>
+            <ul class="emoji-list">
+                <li>📊 Panel de administración completo</li>
+                <li>➕ Gestión de productos</li>
+                <li>📂 Organización por categorías</li>
+                <li>📈 Control de inventario</li>
+                <li>👥 Gestión de usuarios</li>
+                <li>📷 Sistema de imágenes optimizadas</li>
+                <li>📋 Reportes de ventas básicos</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>🛠️ CARACTERÍSTICAS TÉCNICAS</h3>
+    
+    <div class="tech-stack">
+        <strong>FRONTEND</strong><br>
+        ├── React 19 + TypeScript<br>
+        ├── Vite (Build Tool)<br>
+        ├── CSS Modules<br>
+        ├── React Router<br>
+        └── Zustand (State Management)<br><br>
+        
+        <strong>BACKEND</strong><br>
+        ├── Node.js + Express<br>
+        ├── PostgreSQL Database<br>
+        ├── JWT Authentication<br>
+        ├── Multer (File Upload)<br>
+        └── Sharp (Image Processing)<br><br>
+        
+        <strong>HOSTING</strong><br>
+        ├── Frontend: Vercel (Cliente gestiona)<br>
+        ├── Backend: Railway ($5/mes - Cliente paga)<br>
+        ├── Database: Supabase (Cliente gestiona)<br>
+        └── CDN: Cloudinary (Cliente gestiona)
+    </div>
+
+    <div class="highlight-box">
+        <strong>📝 NOTA IMPORTANTE:</strong> Los costos de hosting y servicios externos (aproximadamente $5-10/mes) serán asumidos directamente por el cliente. Se incluye la configuración inicial sin costo adicional.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>💰 PROPUESTA ECONÓMICA</h2>
+    
+    <div class="cost-highlight">
+        INVERSIÓN TOTAL: S/ 5,000 SOLES
+    </div>
+
+    <h3>📊 DESGLOSE POR FASES:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Fase</th>
+                <th>Descripción</th>
+                <th>Duración</th>
+                <th>Costo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>1</strong></td>
+                <td>Planificación y Diseño</td>
+                <td>1 semana</td>
+                <td>S/ 610</td>
+            </tr>
+            <tr>
+                <td><strong>2</strong></td>
+                <td>Desarrollo Backend</td>
+                <td>2.5 semanas</td>
+                <td>S/ 1,780</td>
+            </tr>
+            <tr>
+                <td><strong>3</strong></td>
+                <td>Desarrollo Frontend</td>
+                <td>2.5 semanas</td>
+                <td>S/ 1,925</td>
+            </tr>
+            <tr>
+                <td><strong>4</strong></td>
+                <td>Integración y Optimización</td>
+                <td>1 semana</td>
+                <td>S/ 570</td>
+            </tr>
+            <tr>
+                <td><strong>5</strong></td>
+                <td>Testing y Despliegue</td>
+                <td>0.5 semanas</td>
+                <td>S/ 240</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>💳 FORMA DE PAGO:</h3>
+    <div class="highlight-box">
+        <ul>
+            <li><strong>40% al inicio</strong> - S/ 2,000 Soles</li>
+            <li><strong>40% al 50% del desarrollo</strong> - S/ 2,000 Soles</li>
+            <li><strong>20% al finalizar</strong> - S/ 1,000 Soles</li>
+        </ul>
+    </div>
+
+    <h3>🎁 VALOR AGREGADO INCLUIDO:</h3>
+    <ul class="emoji-list">
+        <li>✅ Código fuente completo del proyecto</li>
+        <li>✅ Documentación técnica detallada</li>
+        <li>✅ Manual de usuario para administración</li>
+        <li>✅ <strong>1 mes de soporte técnico gratuito</strong></li>
+        <li>✅ <strong>2 rondas de revisiones sin costo</strong></li>
+        <li>✅ Sesión de capacitación de 1 hora</li>
+        <li>✅ Setup completo de hosting</li>
+        <li>✅ Optimización SEO básica</li>
+        <li>✅ Certificado SSL de seguridad</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>📅 CRONOGRAMA DE DESARROLLO</h2>
+    
+    <div class="timeline">
+        <h3>DURACIÓN TOTAL: 7 SEMANAS</h3>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Período</th>
+                <th>Actividades</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Semana 1</strong></td>
+                <td>
+                    ✅ Reunión de requerimientos detallados<br>
+                    ✅ Diseño de la base de datos<br>
+                    ✅ Creación de wireframes y mockups<br>
+                    ✅ Definición de identidad visual
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Semanas 2-3</strong></td>
+                <td>
+                    ✅ Configuración del servidor<br>
+                    ✅ Desarrollo de APIs<br>
+                    ✅ Sistema de autenticación<br>
+                    ✅ Gestión de productos y categorías
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Semana 4</strong></td>
+                <td>
+                    ✅ Sistema de pedidos<br>
+                    ✅ Panel administrativo<br>
+                    ✅ Upload y optimización de imágenes
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Semanas 5-6</strong></td>
+                <td>
+                    ✅ Desarrollo de todas las páginas<br>
+                    ✅ Integración con el backend<br>
+                    ✅ Diseño responsive<br>
+                    ✅ Funcionalidades del carrito
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Semana 7</strong></td>
+                <td>
+                    ✅ Integración con WhatsApp<br>
+                    ✅ Testing completo<br>
+                    ✅ Deploy y configuración<br>
+                    ✅ Capacitación al cliente
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>🎯 BENEFICIOS PARA SU NEGOCIO</h2>
+    
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <h3>📈 IMPACTO INMEDIATO</h3>
+            <ul class="emoji-list">
+                <li>🌐 Presencia Digital Profesional</li>
+                <li>📱 Accesibilidad 24/7</li>
+                <li>🎯 Alcance Turístico</li>
+                <li>💰 Aumento de Ventas</li>
+            </ul>
+        </div>
+        <div class="benefit-card">
+            <h3>📊 BENEFICIOS A MEDIANO PLAZO</h3>
+            <ul class="emoji-list">
+                <li>📈 Crecimiento de Clientes</li>
+                <li>🎨 Ventaja Competitiva</li>
+                <li>📊 Datos de Negocio</li>
+                <li>🔄 Escalabilidad</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <h3>💡 RETORNO DE INVERSIÓN:</h3>
+        <p>Con solo <strong>5 ventas adicionales por mes</strong> de S/ 200 promedio, la plataforma se paga en <strong>5 meses</strong>, generando beneficios permanentes.</p>
+        
+        <h3>💸 COSTOS OPERATIVOS MENSUALES:</h3>
+        <p>El cliente asumirá los siguientes costos de hosting y servicios:</p>
+        <ul>
+            <li><strong>Hosting Backend:</strong> Aproximadamente S/ 18/mes (Railway)</li>
+            <li><strong>Otros servicios:</strong> Gratuitos hasta ciertos límites de uso</li>
+            <li><strong>Total estimado:</strong> S/ 18-35/mes según el tráfico</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>🚀 PLAN DE CRECIMIENTO FUTURO</h2>
+    
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <h3>FASE 2 - EXPANSIÓN (S/ 2,000)</h3>
+            <ul class="emoji-list">
+                <li>💳 Integración de pasarela de pagos</li>
+                <li>📧 Sistema de notificaciones por email</li>
+                <li>🚚 Módulo de envíos y tracking</li>
+                <li>📊 Dashboard de analytics avanzado</li>
+            </ul>
+        </div>
+        <div class="benefit-card">
+            <h3>FASE 3 - DIGITALIZACIÓN COMPLETA (S/ 1,500)</h3>
+            <ul class="emoji-list">
+                <li>📱 Aplicación móvil básica</li>
+                <li>💰 Sistema de cupones y descuentos</li>
+                <li>⭐ Reviews y calificaciones</li>
+                <li>💬 Chat en vivo integrado</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>📞 SIGUIENTES PASOS</h2>
+    
+    <div class="highlight-box">
+        <h3>PARA INICIAR EL PROYECTO:</h3>
+        <ol>
+            <li><strong>✅ Aceptación de la propuesta</strong></li>
+            <li><strong>💰 Pago inicial del 40% (S/ 2,000)</strong></li>
+            <li><strong>📋 Reunión de requerimientos detallados</strong></li>
+            <li><strong>🎨 Definición de diseño y branding</strong></li>
+            <li><strong>🚀 Inicio del desarrollo</strong></li>
+        </ol>
+    </div>
+
+    <div class="contact-info">
+        <h3>INFORMACIÓN DE CONTACTO</h3>
+        <p><strong>Desarrollador:</strong> Edwin LCE</p>
+        <p><strong>Email:</strong> [Completar email]</p>
+        <p><strong>Teléfono:</strong> [Completar teléfono]</p>
+        <p><strong>WhatsApp:</strong> [Completar WhatsApp]</p>
+        <p><strong>LinkedIn:</strong> [Completar LinkedIn]</p>
+    </div>
+
+    <h2>📄 TÉRMINOS Y CONDICIONES</h2>
+    
+    <div class="terms">
+        <h3>ALCANCE:</h3>
+        <ul>
+            <li>El proyecto incluye únicamente lo especificado en esta propuesta</li>
+            <li>Cambios adicionales serán cotizados por separado</li>
+            <li>Se incluyen 2 rondas de revisiones menores</li>
+        </ul>
+
+        <h3>PLAZOS:</h3>
+        <ul>
+            <li>El desarrollo iniciará tras recibir el pago inicial</li>
+            <li>La entrega final está estimada en 7 semanas</li>
+            <li>Retrasos por parte del cliente pueden extender el cronograma</li>
+        </ul>
+
+        <h3>PAGOS:</h3>
+        <ul>
+            <li>Los pagos se realizarán según el cronograma establecido</li>
+            <li>No se entregarán archivos finales hasta completar el pago total</li>
+            <li>Los precios están expresados en soles peruanos</li>
+            <li>Los costos de hosting y servicios externos son responsabilidad del cliente</li>
+        </ul>
+
+        <h3>PROPIEDAD INTELECTUAL:</h3>
+        <ul>
+            <li>El código fuente será entregado al cliente al finalizar el proyecto</li>
+            <li>El cliente tendrá derechos completos sobre la aplicación desarrollada</li>
+            <li>Se podrá usar el proyecto como referencia en portfolio</li>
+        </ul>
+    </div>
+
+    <div class="highlight-box" style="text-align: center; margin-top: 40px;">
+        <p><strong>Esta propuesta es válida por 30 días a partir de la fecha de emisión.</strong></p>
+        <h3 style="color: #2c3e50;">¿Listo para llevar su bodega artesanal al siguiente nivel digital?</h3>
+        <h2 style="color: #3498db;">¡Construyamos juntos el futuro de su negocio!</h2>
+        <p style="margin-top: 30px; font-style: italic;">Documento generado el 30 de Julio de 2025</p>
+    </div>
+
+</body>
+</html>
